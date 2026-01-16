@@ -1,0 +1,4 @@
+#Python Libs
+
+
+pip install numpy matplotlib
