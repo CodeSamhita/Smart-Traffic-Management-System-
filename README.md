@@ -1,6 +1,7 @@
 # Smart Traffic Management System 
 
 Let's not limit the smart traffic system to signaling only but also to traffic routing.
+Based on type of vehical we need to adjest time timing and with what speed the vehical is approching shouldnot waste time.
 
 
 .

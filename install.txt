@@ -2,3 +2,9 @@
 
 
 pip install numpy matplotlib
+pip install opencv-python numpy
+pip install ultralytics opencv-python
+pip install ultralytics opencv-python torch torchvision
+pip uninstall torch torchvision torchaudio -y
+pip3 install torch torchvision --index-url https://download.pytorch.org/whl/cu130
+pip install psutil torch platformdirs

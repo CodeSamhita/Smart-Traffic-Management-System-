@@ -1,0 +1,4 @@
+https://pytorch.org/get-started/locally/#supported-windows-distributions
+https://developer.nvidia.com/cuda
+https://docs.ultralytics.com/models/yolo26/#key-features
+chatgpt
