@@ -4,7 +4,7 @@ from ultralytics import YOLO
 model = YOLO("yoloe-26x-seg.pt")  # or select yoloe-26s/m-seg.pt for different sizes
 
 # Set text prompt to detect person and bus. You only need to do this once after you load the model.
-names = ["bus"]
+names = ["bus","person","car","bike"]
 model.set_classes(names, model.get_text_pe(names))
 
 # Run detection on the given image
