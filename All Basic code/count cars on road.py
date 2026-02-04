@@ -38,7 +38,7 @@ except Exception as e:
 # ----------------------------------------------------
 try:
     BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-    IMAGE_PATH = os.path.join(BASE_DIR, "images", "road6.jpg")
+    IMAGE_PATH = os.path.join(BASE_DIR, "images", "road1.jpg")
 except NameError:
     raise RuntimeError(
         "__file__ is not defined. Run this script from a .py file, not a notebook."

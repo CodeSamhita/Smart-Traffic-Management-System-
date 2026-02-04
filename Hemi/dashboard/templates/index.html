@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Smart Traffic Analysis Dashboard</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f6f8;
+            margin: 0;
+            padding: 0;
+        }
+        .header {
+            background: #1f2933;
+            color: white;
+            padding: 15px;
+            text-align: center;
+        }
+        .container {
+            padding: 20px;
+        }
+        .card {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        .cards {
+            display: flex;
+            gap: 20px;
+        }
+        .card h2 {
+            margin: 0;
+            font-size: 18px;
+            color: #444;
+        }
+        .card p {
+            font-size: 28px;
+            font-weight: bold;
+        }
+        canvas {
+            background: white;
+            border-radius: 8px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="header">
+    <h1>Smart Traffic Management System</h1>
+    <p>Indian Traffic – Congestion Analysis Dashboard</p>
+</div>
+
+<div class="container">
+
+    <div class="cards">
+        <div class="card">
+            <h2>Average Congestion</h2>
+            <p id="avgCongestion">--</p>
+        </div>
+        <div class="card">
+            <h2>Congestion Level</h2>
+            <p id="level">--</p>
+        </div>
+        <div class="card">
+            <h2>Emergency Events</h2>
+            <p id="emergency">--</p>
+        </div>
+    </div>
+
+    <div class="card">
+        <h2>Congestion Trend Over Time</h2>
+        <canvas id="congestionChart"></canvas>
+    </div>
+
+</div>
+
+<script>
+async function loadData() {
+    const response = await fetch("/api/traffic-data");
+    const data = await response.json();
+
+    document.getElementById("avgCongestion").innerText = data.average_congestion;
+    document.getElementById("level").innerText = data.congestion_level;
+    document.getElementById("emergency").innerText = data.emergency_count;
+
+    const ctx = document.getElementById("congestionChart").getContext("2d");
+
+    new Chart(ctx, {
+        type: "line",
+        data: {
+            labels: data.congestion_history.map((_, i) => i + 1),
+            datasets: [{
+                label: "Congestion Score",
+                data: data.congestion_history,
+                borderWidth: 2,
+                fill: false
+            }]
+        },
+        options: {
+            responsive: true,
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+    });
+}
+
+loadData();
+</script>
+
+</body>
+</html>
