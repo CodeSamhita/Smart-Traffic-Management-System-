@@ -1,1 +1,8 @@
 yolo26x.pt
+yolo26n.pt
+yoloe-26l-seg.pt
+yoloe-26x-seg.pt
+mobileclip2_b.ts
+indian-vehicle-dataset/1.complete
+yolo26x-obb.pt
+*.jpg
